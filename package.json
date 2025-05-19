@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@google/genai": "^0.14.1"
+    "@google/genai": "^0.14.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
   }
 }

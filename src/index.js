@@ -6,7 +6,7 @@ import cors from 'cors';
 // Substitua pela sua chave de API do Google Generative AI
 const apiKey = "AIzaSyDChI3sZGL-8sW45zUCXEoG55RlYNV6sig";
 const genAI = new GoogleGenAI({ apiKey });
-const model = genAI.model({ model: "gemini-pro" });
+const model = genAI.generativeModel({ model: "gemini-pro" });
 
 const app = express();
 const port = 3000;
