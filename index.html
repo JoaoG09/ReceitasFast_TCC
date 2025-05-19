@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas Fast - TCC</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("banner.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+    .banner {
+      padding: 60px 20px 20px;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .banner h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .banner p {
+      font-size: 1.1em;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+    .container {
+      margin-top: 40px;
+      background: white;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    :root {
+      --laranja: #f57c00;
+      --creme: #fffaf1;
+      --cinza-texto: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--creme);
+      color: var(--cinza-texto);
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--laranja);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a.logo {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .banner {
+      background: url('banner.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+      position: relative;
+      padding-top: 120px;
+    }
+
+    .banner h2 {
+      font-size: 2.7em;
+      margin-bottom: 15px;
+    }
+
+    .banner p {
+      font-size: 1.2em;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 8px 16px;
+      border-radius: 6px;
+      margin-bottom: 40px;
+    }
+
+    .form-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 600px;
+      position: absolute;
+      top: 65%;
+      transform: translateY(-50%);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 0.95em;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 20px;
+      background-color: var(--laranja);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 30px;
+    }
+    .receita {
+      background-color: #fff4e0;
+      padding: 15px;
+      border-left: 5px solid var(--laranja);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .sem-resultado {
+      color: #d32f2f;
+      font-weight: bold;
+      text-align: center;
+    }
+    #contador {
+      font-weight: bold;
+      color: #444;
+      text-align: center;
+      margin: 20px;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Receitas Fast</a>
+    <nav>
+      <a href="receitas.html">Receitas</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h2>Recomendações de Receitas Saudáveis e Rápidas</h2>
+    <p>Informe os ingredientes e tempo disponível. Nós te mostramos a receita ideal!</p>
+
+    <div class="form-card">
+      <label for="ingredientes">Ingredientes disponíveis:</label>
+      <input type="text" id="ingredientes" placeholder="Ex: carne, arroz, tomate" />
+      <label for="tempo">Tempo disponível (em minutos):</label>
+      <input type="number" id="tempo" placeholder="Ex: 30" />
+      <button onclick="buscarReceitas()">Buscar Receitas</button>
+    </div>
+  </div>
+
+  <div id="contador"></div>
+  <div class="cards" id="resultados"></div>
+
+  <script>
+    async function buscarReceitas() {
+      const ingredientes = document.getElementById("ingredientes").value;
+      const resultadosDiv = document.getElementById("resultados");
+      const contadorDiv = document.getElementById("contador");
+      resultadosDiv.innerHTML = "Carregando sugestão da IA...";
+      contadorDiv.innerHTML = "";
+
+      if (!ingredientes) {
+        alert('Por favor, informe os ingredientes.');
+        resultadosDiv.innerHTML = "";
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:3000/gerar-resposta', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ prompt: `Quais receitas posso fazer com os seguintes ingredientes: ${ingredientes}?` }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(`Erro na requisição: ${response.status} - ${errorData.error || 'Erro desconhecido'}`);
+        }
+
+        const data = await response.json();
+        resultadosDiv.innerHTML = `<p><strong>Sugestão da IA:</strong> ${data.resposta || 'Nenhuma sugestão encontrada.'}</p>`;
+
+      } catch (error) {
+        console.error("Erro ao enviar prompt para o backend:", error);
+        resultadosDiv.innerHTML = `Erro ao obter sugestão da IA: ${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>

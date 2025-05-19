@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Receitas Fast</title>
+  <style>
+    :root {
+      --laranja: #f57c00;
+      --creme: #fffaf1;
+      --cinza-texto: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--creme);
+      color: var(--cinza-texto);
+    }
+    header {
+      background-color: var(--laranja);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a.logo {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .banner {
+      background-image: url("banner.jpg");
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px 20px; /* antes estava 140px */
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .banner h2 {
+      font-size: 2.8em;
+      margin: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .receitas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: var(--laranja);
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.95em;
+      line-height: 1.5em;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Receitas Fast</a>
+    <nav>
+      <a href="receitas.html">Receitas</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h2>Recomendações de Receitas</h2>
+  </div>
+
+  <div class="container">
+    <div class="receitas-grid">
+      <div class="card">
+        <h3>Panqueca de Aveia</h3>
+        <p>Misture 1 ovo com 3 colheres de sopa de aveia e 1 banana bem madura amassada até formar uma massa homogênea. Doure em frigideira antiaderente.</p>
+      </div>
+      <div class="card">
+        <h3>Carne Moída com Abóbora</h3>
+        <p>Refogue a carne com alho e cebola. Acrescente abóbora em cubos e cozinhe até amaciar. Sirva quente.</p>
+      </div>
+      <div class="card">
+        <h3>Filé de Frango com Brócolis</h3>
+        <p>Grelhe os filés com alho e azeite. Cozinhe o brócolis no vapor e sirva com o frango.</p>
+      </div>
+      <div class="card">
+        <h3>Escondidinho de Carne</h3>
+        <p>Refogue a carne moída com cebola. Cozinhe batata doce, amasse e monte camadas em um refratário. Leve ao forno para dourar.</p>
+      </div>
+      <div class="card">
+        <h3>Tabule com Frango</h3>
+        <p>Hidrate o trigo, misture com frango desfiado, hortelã, tomate e tempero a gosto.</p>
+      </div>
+      <div class="card">
+        <h3>Tilápia Assada com Ervas</h3>
+        <p>Tempere a tilápia com limão, sal e ervas finas. Asse em forno médio por cerca de 25 minutos.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Aplicação Web para Recomendação de Receitas | TCC - UNORTE
+  </footer>
+</body>
+</html>

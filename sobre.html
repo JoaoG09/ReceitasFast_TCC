@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre - Receitas Fast</title>
+  <style>
+    :root {
+      --laranja: #f57c00;
+      --creme: #fffaf1;
+      --cinza-texto: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--creme);
+      color: var(--cinza-texto);
+    }
+    header {
+      background-color: var(--laranja);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a.logo {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .banner {
+      background-image: url("banner.jpg");
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px 20px; /* Ajustado para reduzir o espaço */
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .banner h2 {
+      font-size: 2.8em;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Receitas FIT</a>
+    <nav>
+      <a href="receitas.html">Receitas</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h2>Sobre o Projeto</h2>
+  </div>
+
+  <div class="container">
+    <p>Este projeto foi desenvolvido como parte do Trabalho de Conclusão de Curso (TCC) com o objetivo de facilitar a recomendação de receitas saudáveis com base nos ingredientes disponíveis e no tempo de preparo.</p>
+    <p>Com uma interface simples e intuitiva, o sistema permite ao usuário inserir os ingredientes que possui em casa, além do tempo que tem disponível, e retorna receitas adequadas às suas necessidades.</p>
+    <p>O projeto utiliza HTML, CSS e JavaScript puro para sua construção, mantendo o foco em acessibilidade, leveza e funcionalidade.</p>
+    <p><strong>Projeto acadêmico – TCC | UNORTE</strong></p>
+  </div>
+
+  <footer>
+    Aplicação Web para Recomendação de Receitas | TCC - UNORTE
+  </footer>
+</body>
+</html>
